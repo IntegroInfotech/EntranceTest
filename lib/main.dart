@@ -171,7 +171,8 @@ class _MyHomePageState extends State<MyHomePage> {
     print(decodedQuestion['questions'].length);
     if (decodedQuestion.containsKey('questions')) {
       setState(() {
-        questions.addAll(decodedQuestion['questions'] as List<String>);
+        questions.addAll(List<String>.from(
+            (decodedQuestion['questions'] as List<dynamic>).map((e) => e)));
       });
     }
     for (var string in questions) {
